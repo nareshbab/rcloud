@@ -169,6 +169,14 @@ configure.rcloud <- function (mode=c("startup", "script")) {
   }
   options(HTTPUserAgent=paste(getOption("HTTPUserAgent"), "- RCloud (http://github.com/cscheid/rcloud)"))
 
+  ## add bootup rcs values
+  boots <- rcloud.support:::getConf('rcs.boot')
+  boots <- strsplit(s, '\n')[[1]]
+  boots <- boots[boots!='']
+  sides <- strsplit(boots, ' *- *')
+  lapply(sides, function(kv)
+    rcs.set(kv[[1]], strsplit(kv[[2]], ' *, *')[[1]]))
+
   ## determine verison/revision/branch
   ##
   ## in absence of a VERSION file claim 0.0
