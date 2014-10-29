@@ -704,8 +704,6 @@ li.jqtree-selected .notebook-commands {
     white-space: pre;
     max-width: none;
     display: inline-block;
-    font-size: 12px;
-    background-color: initial;
 }
 
 .session-error.spare {
